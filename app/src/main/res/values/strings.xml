@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PushGeofencing</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAvA5-WZveYFSTMQ9GCaRbkHswRVhctjvc</string>
 </resources>
