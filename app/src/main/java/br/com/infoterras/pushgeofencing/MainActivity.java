@@ -1,20 +1,23 @@
 package br.com.infoterras.pushgeofencing;
 
 import android.Manifest;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,6 +34,8 @@ import java.util.List;
 
 import br.com.infoterras.pushgeofencing.manager.LocationManager;
 import br.com.infoterras.pushgeofencing.util.PermissionUtil;
+
+d.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -60,13 +65,30 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     for (Location l : locations) {
                         Location.distanceBetween(location.getLatitude(), location.getLongitude(), l.getLatitude(), l.getLongitude(), distance);
                         if (distance[0] < 25) {
-                            Toast.makeText(context, "Você está próximo ao - " + l.getProvider(), Toast.LENGTH_SHORT).show();
+                            showNotification("Você está próximo ao " + l.getProvider() + " pague com 4all");
                         } else
                             Log.e("TAG", "distante " + distance[0] + " de " + l.getProvider());
                     }
                 }
             }
         };
+    }
+
+    private void showNotification(String name){
+
+        final Intent emptyIntent = new Intent();
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, emptyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(android.R.drawable.sym_def_app_icon)
+                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                        .setContentTitle("4all")
+                        .setContentText(name)
+                        .setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, mBuilder.build());
     }
 
     private void initMaps(){

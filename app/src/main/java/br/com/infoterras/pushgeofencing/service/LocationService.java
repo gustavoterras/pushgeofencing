@@ -20,10 +20,10 @@ import br.com.infoterras.pushgeofencing.manager.LocationManager;
 public class LocationService extends Service implements LocationListener {
 
     // The minimum distance to change Updates in meters
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 50; //50 meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5; //50 meters
 
     // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60; //60 seconds
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 5; //60 seconds
 
     // Declaring a Location Manager
     protected android.location.LocationManager locationManager;
