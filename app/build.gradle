@@ -4,17 +4,34 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "br.com.infoterras.pushgeofencing"
+        applicationId "com.fourall.pushgeofencing"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
+
+        def STRING = "String"
+        def PUSH_URL = "PUSH_URL"
+        def PUSH_TOKEN = "PUSH_TOKEN"
+
+        debug {
+            buildConfigField STRING, PUSH_TOKEN, "\"JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJuYW1lIjoiR2VvZmVuY2UifQ.9Ruy5kzdXsYFUIaiyn16FwF6_zwOSupv1jSz8rhFol8\""
+            buildConfigField STRING, PUSH_URL, "\"https://notifications.homolog.api.4all.com\""
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField STRING, PUSH_TOKEN, "\"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwibmFtZSI6IkRvbm5hIn0.Wk584LFzbcLxEbhw4mRbnVKqLHO4weZ65lugQogOWEA\""
+            buildConfigField STRING, PUSH_URL, "\"https://notifications.api.4all.com\""
         }
     }
 }
@@ -24,10 +41,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile project(':core')
+
     compile 'com.android.support:design:25.3.1'
+    compile 'com.4all.libs:4all_accountLib:1.19.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.android.gms:play-services-maps:11.0.1'
+    compile "com.google.android.gms:play-services:11.0.2"
     testCompile 'junit:junit:4.12'
 
-
+    apply plugin: 'com.google.gms.google-services'
 }

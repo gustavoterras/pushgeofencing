@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "412411223089",
+    "firebase_url": "https://pushgeofencing.firebaseio.com",
+    "project_id": "pushgeofencing",
+    "storage_bucket": "pushgeofencing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412411223089:android:a2d468e4b0454a1a",
+        "android_client_info": {
+          "package_name": "com.fourall.pushgeofencing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412411223089-iebqt9iqijjqa91t4dfgo4uir4ff5u3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlfde57aauIbzoLXhOBbDAXZq4wtQf-DE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

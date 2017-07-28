@@ -1,4 +1,4 @@
-package br.com.infoterras.pushgeofencing.util;
+package com.fourall.pushgeofencing.util;
 
 import android.Manifest;
 import android.content.Context;

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PushGeofencing.iml" filepath="$PROJECT_DIR$/PushGeofencing.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../core-android/core/core.iml" filepath="$PROJECT_DIR$/../core-android/core/core.iml" />
     </modules>
   </component>
 </project>

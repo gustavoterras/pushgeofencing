@@ -1,10 +1,10 @@
-package br.com.infoterras.pushgeofencing.manager;
+package com.fourall.pushgeofencing.manager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 
-import br.com.infoterras.pushgeofencing.service.LocationService;
+import com.fourall.pushgeofencing.service.LocationService;
 
 /**
  * Created by Gustavo on 10/03/2017.

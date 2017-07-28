@@ -5,7 +5,9 @@ buildscript {
         jcenter()
     }
     dependencies {
+        classpath "io.realm:realm-gradle-plugin:2.3.0"
         classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.google.gms:google-services:3.1.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -15,6 +17,20 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven {
+            url PATH_LIB
+            credentials(AwsCredentials) {
+                accessKey AWS_ACCESS_KEY
+                secretKey AWS_SECRET_KEY
+            }
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+        maven {
+            // Zendesk public repo
+            url 'https://zendesk.artifactoryonline.com/zendesk/repo/'
+        }
     }
 }
 
